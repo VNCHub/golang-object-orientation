@@ -1,9 +1,12 @@
 package contas
 
-import "fmt"
+import (
+	"fmt"
+	"orientacao-a-objetos/titulares"
+)
 
 type ContaCorrente struct {
-	Titular       string
+	Titular       titulares.PessoaFisica
 	NumeroAgencia int
 	NumeroConta   int
 	Saldo         float64

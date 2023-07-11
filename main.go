@@ -3,16 +3,22 @@ package main
 import (
 	"fmt"
 	"orientacao-a-objetos/contas"
+	"orientacao-a-objetos/titulares"
 )
 
 func main() {
 	//Como declarar valores
-	contaVinicius := contas.ContaCorrente{
-		Titular: "Vinicius", NumeroAgencia: 123, NumeroConta: 001, Saldo: 100}
+	Vinicius := titulares.PessoaFisica{Nome: "Vinicius", CPF: "123.456.789.00", Profissao: "Desenvolvedor"}
+	contaVinicius := contas.ContaCorrente{Titular: Vinicius, NumeroAgencia: 123, NumeroConta: 001, Saldo: 100}
 
 	//Como declarar ponteiros
+	Denise := new(titulares.PessoaFisica)
+	Denise.Nome = "Denise"
+	Denise.CPF = "456.789.123-99"
+	Denise.Profissao = "Quimica"
+
 	contaDenise := new(contas.ContaCorrente)
-	contaDenise.Titular = "Denise"
+	contaDenise.Titular = *Denise
 	contaDenise.NumeroAgencia = 123
 	contaDenise.NumeroConta = 002
 	contaDenise.Saldo = 1000
