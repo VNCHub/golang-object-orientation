@@ -28,6 +28,16 @@ func (c *ContaCorrente) depositar(valor float64) bool {
 	return podeDepositar
 }
 
+func (c *ContaCorrente) transferir(valor float64, contaDestino *ContaCorrente) bool {
+	podeTransferir := valor > 0 && valor < c.saldo
+	fmt.Println("Realizando transferência no valor de: R$", valor, "...")
+	if podeTransferir {
+		c.saldo -= valor
+		contaDestino.saldo += valor
+	}
+	return podeTransferir
+}
+
 func main() {
 	//Como declarar valores
 	contaVinicius := ContaCorrente{"Vinicius", 123, 001, 100}
@@ -49,6 +59,12 @@ func main() {
 		fmt.Println("Saque realizado com sucesso!")
 	} else {
 		fmt.Println("Não foi possível realizar o saque, saldo insuficiente.")
+	}
+
+	if contaDenise.transferir(200, &contaVinicius) {
+		fmt.Println("Transferência realizada com sucesso!")
+	} else {
+		fmt.Println("Não foi possível realizar a transferência, saldo insuficiente.")
 	}
 
 	fmt.Println(contaVinicius, *contaDenise)
