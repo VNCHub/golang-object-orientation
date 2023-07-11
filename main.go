@@ -7,7 +7,8 @@ import (
 
 func main() {
 	//Como declarar valores
-	contaVinicius := contas.ContaCorrente{"Vinicius", 123, 001, 100}
+	contaVinicius := contas.ContaCorrente{
+		Titular: "Vinicius", NumeroAgencia: 123, NumeroConta: 001, Saldo: 100}
 
 	//Como declarar ponteiros
 	contaDenise := new(contas.ContaCorrente)
