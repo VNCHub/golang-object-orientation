@@ -9,7 +9,7 @@ import (
 func main() {
 	//Como declarar valores
 	Vinicius := titulares.PessoaFisica{Nome: "Vinicius", CPF: "123.456.789.00", Profissao: "Desenvolvedor"}
-	contaVinicius := contas.ContaCorrente{Titular: Vinicius, NumeroAgencia: 123, NumeroConta: 001, Saldo: 100}
+	contaVinicius := contas.ContaCorrente{Titular: Vinicius, NumeroAgencia: 123, NumeroConta: 001}
 
 	//Como declarar ponteiros
 	Denise := new(titulares.PessoaFisica)
@@ -21,7 +21,6 @@ func main() {
 	contaDenise.Titular = *Denise
 	contaDenise.NumeroAgencia = 123
 	contaDenise.NumeroConta = 002
-	contaDenise.Saldo = 1000
 
 	if contaDenise.Depositar(399.99) {
 		fmt.Println("Deposito realizado com sucesso!")
